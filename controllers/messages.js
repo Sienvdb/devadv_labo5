@@ -49,7 +49,8 @@ const getId = (req, res) =>{
 }
 
 const create = (req, res) => {
-    const user = "jane"
+    const user = "jane";
+    const message = "Very good, thx!"
 
     const response = {
         status: "success",
@@ -58,7 +59,7 @@ const create = (req, res) => {
             messages: [
                 {
                     "user": user,
-                    "message": "Very good, thx!"
+                    "message": message
                 }
             ]
         }

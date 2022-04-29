@@ -12,7 +12,7 @@ const getAll = (req, res) => {
 
 const get = (req, res) => {
     const response = {
-        status: "succes",
+        status: "success",
         message: "GETTING messages",
         data: {
             messages: [
@@ -30,5 +30,24 @@ const get = (req, res) => {
     res.json(response);
 }
 
+const getId = (req, res) =>{
+    const id = req.params.id;
+
+    const response = {
+        status: "success",
+        message: "GETTING message with id " + id,
+        data: {
+            messages: [
+                {
+                    "user": "John",
+                    "message": "How are you"
+                }
+            ]
+        }
+    }
+    res.json(response);
+}
+
 module.exports.getAll = getAll;
 module.exports.get = get;
+module.exports.getId = getId;

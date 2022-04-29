@@ -90,9 +90,27 @@ const update = (req, res) => {
     res.json(response);
 }
 
+const remove = (req, res) =>{
+    const id = req.params.id;
+
+    const response = {
+        status: "success",
+        message: "DELETING a message with id " + id,
+        data: {
+            messages: [
+                {
+                    "user": "Jane",
+                    "message": "I really don't like that message!"
+                }
+            ]
+        }
+    }
+    res.json(response);
+}
 
 module.exports.getAll = getAll;
 module.exports.get = get;
 module.exports.getId = getId;
 module.exports.create = create;
 module.exports.update = update;
+module.exports.remove = remove;

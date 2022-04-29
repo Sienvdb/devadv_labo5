@@ -32,6 +32,7 @@ const get = (req, res) => {
 
 const getId = (req, res) =>{
     const id = req.params.id;
+    const message = "How are you?"
 
     const response = {
         status: "success",
@@ -40,7 +41,7 @@ const getId = (req, res) =>{
             messages: [
                 {
                     "user": "John",
-                    "message": "How are you"
+                    "message": message
                 }
             ]
         }
@@ -67,7 +68,31 @@ const create = (req, res) => {
     res.json(response);
 }
 
+const update = (req, res) => {
+    const id = req.params.id;
+
+    const response ={
+        status: "success",
+        message: "UPDATING a message with id " + id,
+        data: {
+            messages: [
+                {
+                    "user": "Jane",
+                    "message": "You're such a nice person!"
+                },
+                {
+                    "user": "John",
+                    "message": "Thank you, I realy like talking to you too!"
+                }
+            ]
+        }
+    }
+    res.json(response);
+}
+
+
 module.exports.getAll = getAll;
 module.exports.get = get;
 module.exports.getId = getId;
 module.exports.create = create;
+module.exports.update = update;

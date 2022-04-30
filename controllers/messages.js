@@ -1,24 +1,29 @@
 const getAll = (req, res) => {
-    const response = {
-        status: "succes",
-        data: {
-            messages: [
-                message = "GETTING messages"
-            ]
-        }
-    }
-    res.json(response);
-}
+    const username = req.query.user;
 
-const get = (req, res) => {
+    if(username) {
+        const response = {
+            status: "success",
+            message: "GETTING a message for username " + username,
+            data: {
+                messages: [
+                    {
+                        "user": username,
+                        "message": "I like this app! Thx for building it " + username + "!"
+                    }
+                ]
+            }
+        }
+        res.json(response);
+    };
     const response = {
         status: "success",
         message: "GETTING messages",
         data: {
             messages: [
                 {
-                    "user" : "John",
-                    "message" : "Hello"
+                    "user": "John",
+                    "message": "Hello"
                 },
                 {
                     "user": "Jane",
@@ -26,9 +31,9 @@ const get = (req, res) => {
                 }
             ]
         }
-    }
+    };
     res.json(response);
-}
+};
 
 const getId = (req, res) =>{
     const id = req.params.id;
@@ -109,7 +114,6 @@ const remove = (req, res) =>{
 }
 
 module.exports.getAll = getAll;
-module.exports.get = get;
 module.exports.getId = getId;
 module.exports.create = create;
 module.exports.update = update;

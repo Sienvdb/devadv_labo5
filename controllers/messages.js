@@ -55,7 +55,7 @@ const getId = (req, res) =>{
 }
 
 const create = (req, res) => {
-    const user = "jane";
+    const user = "Jane";
     const message = "Very good, thx!"
 
     const response = {
